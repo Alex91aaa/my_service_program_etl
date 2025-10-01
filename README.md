@@ -128,6 +128,7 @@ flowchart TD
         U[General Utilities - utils.py]
     end
 
+    J --> E
     D --> J
     J --> I
     D --> U
