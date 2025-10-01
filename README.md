@@ -17,16 +17,16 @@ Automated data pipeline for event-based systems.
 
 ```mermaid
 flowchart TD
-    A[Base Data Fetch\n(fetcher.py)] --> B[Event List Generation\n(fetcher.py)]
-    B --> C[Entity / Transaction / Return Rate Data Fetch\n(fetcher.py)]
-    C --> D[Data Cleaning\n(cleaner.py)]
-    D --> E[Data Integration / DB\n(loader.py, etl_additional_script.py)]
-    E --> F[Foreign Key Resolver\n(loader.py)]
-    F --> G[Threaded Real-time Processing\n(threads.py)]
-    G --> H[Daily CSV / Return Rate Output\n(etl_additional_script.py)]
-    H --> I[Bot / Discord Notifications\n(discord_bot.py)]
+    A[Base Data Fetch (fetcher.py)] --> B[Event List Generation (fetcher.py)]
+    B --> C[Entity / Transaction / Return Rate Data Fetch (fetcher.py)]
+    C --> D[Data Cleaning (cleaner.py)]
+    D --> E[Data Integration / DB (loader.py, etl_additional_script.py)]
+    E --> F[Foreign Key Resolver (loader.py)]
+    F --> G[Threaded Real-time Processing (threads.py)]
+    G --> H[Daily CSV / Return Rate Output (etl_additional_script.py)]
+    H --> I[Bot / Discord Notifications (discord_bot.py)]
     subgraph utils
-        U[General Utilities\n(utils.py)]
+        U[General Utilities (utils.py)]
     end
     D --> U
     E --> U
