@@ -15,6 +15,35 @@ Automated data pipeline for event-based systems.
 - Pandas, Requests, JSON
 - Threading, ETL, Logging
 
+## Features / Highlights
+- ETL pipeline with historical & daily data processing
+- Threaded real-time processing of events
+- Automated foreign key resolution and bulk DB integration
+- Logging, retry mechanisms, error handling
+
+
+🔹 Technical Skills Demonstrated
+
+ETL Automation: End-to-end workflow for structured data pipelines.
+APIs & Web Data: Resilient API interactions with retries, logging, and error handling.
+Python Engineering: Modular, multi-file project with utilities and shared functions.
+Databases: Bulk loading, resolving foreign keys, transaction handling.
+Concurrency: Multi-threaded processing of real-time data.
+DevOps Practices: Logging, configuration management, and separation of concerns.
+
+
+🔹 Challenges & Solutions
+
+Challenge: APIs occasionally failed or returned incomplete data.
+✅ Solution: Implemented a retry decorator with customizable retries and delays.
+Challenge: Large volumes of historical data needed efficient integration.
+✅ Solution: Used bulk inserts and smart date-based batch processing.
+Challenge: Different datasets (events, entities, return rates) required synchronization.
+✅ Solution: Created a schema dictionary and resolver functions to keep relationships consistent.
+Challenge: Need for real-time feedback and monitoring.
+✅ Solution: Built a Discord bot integration for live alerts and summaries.
+
+
 ```mermaid
 flowchart TD
     A[Base Data Fetch - fetcher.py] --> B[Event List Generation - fetcher.py]
