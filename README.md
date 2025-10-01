@@ -1,5 +1,5 @@
 # my_service_program_etl
---- Anonymized and no config -> not runnable! 
+⚠️ Note: This repository is anonymized for portfolio purposes. Config files and credentials are not included. The code is not runnable as-is.
 
 Automated data pipeline for event-based systems.  
 
@@ -43,6 +43,44 @@ Challenge: Different datasets (events, entities, return rates) required synchron
 Challenge: Need for real-time feedback and monitoring.
 ✅ Solution: Built a Discord bot integration for live alerts and summaries.
 
+## How It Works
+
+1. **Data Fetch**
+   - Fetch base data, entity info, and return rates
+   - Generate event lists for processing
+
+2. **Data Cleaning**
+   - Prepare sessions, events, transactions
+   - Normalize transaction values
+
+3. **Data Integration**
+   - Insert cleaned data into database
+   - Resolve foreign keys for entity relationships
+
+4. **Real-time Processing**
+   - Threads handle events concurrently
+   - Output daily CSVs and update return rates
+
+5. **Notifications**
+   - Send important results and summaries via Discord bot
+
+---
+
+## Module Descriptions
+
+| Module | Purpose |
+|--------|---------|
+| `main.py` | Orchestrates the whole ETL and real-time process |
+| `utils.py` | Helper functions: YAML loader, logging, retries, history generation |
+| `fetcher.py` | Fetches base, entity, and return rate data |
+| `cleaner.py` | Data cleaning, normalization, transaction value preparation |
+| `data_integration.py` | Inserts data into database, resolves relationships |
+| `threads.py` | Threaded processing for live events |
+| `etl_additional_script.py` | Extra ETL routines for historical data |
+| `discord_bot.py` | Sends notifications to Discord |
+| `loader.py` | Utility for loading daily data |
+
+---
 
 ```mermaid
 flowchart TD
