@@ -15,12 +15,18 @@ Automated data pipeline for event-based systems.
 - Pandas, Requests, JSON
 - Threading, ETL, Logging
 
+```mermaid
 flowchart TD
-    A[Base Data Fetch] --> B[Event List Generation]
-    B --> C[Entity / Transaction / Return Rate Data Fetch]
-    C --> D[Data Cleaning]
-    D --> E[Data Integration / DB]
-    E --> F[Foreign Key Resolver]
-    F --> G[Threaded Real-time Processing]
-    G --> H[Daily CSV / Return Rate Output]
-    H --> I[Bot / Discord Notifications]
+    A[Base Data Fetch\n(fetcher.py)] --> B[Event List Generation\n(fetcher.py)]
+    B --> C[Entity / Transaction / Return Rate Data Fetch\n(fetcher.py)]
+    C --> D[Data Cleaning\n(cleaner.py)]
+    D --> E[Data Integration / DB\n(loader.py, etl_additional_script.py)]
+    E --> F[Foreign Key Resolver\n(loader.py)]
+    F --> G[Threaded Real-time Processing\n(threads.py)]
+    G --> H[Daily CSV / Return Rate Output\n(etl_additional_script.py)]
+    H --> I[Bot / Discord Notifications\n(discord_bot.py)]
+    subgraph utils
+        U[General Utilities\n(utils.py)]
+    end
+    D --> U
+    E --> U
