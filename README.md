@@ -1,6 +1,10 @@
 # my_service_program_etl
-⚠️ Note: This repository is anonymized for portfolio purposes. Config files and credentials are not included. The code is not runnable as-is.
 
+## Portfolio Context
+⚠️ This repository is anonymized for portfolio purposes:  
+- Config files and credentials are removed  
+- Code is not runnable as-is  
+- Designed to demonstrate pipeline architecture, modular code, and technical skills
 Automated data pipeline for event-based systems.  
 
 ## Overview
@@ -9,12 +13,12 @@ Full ETL and real-time processing pipeline for complex event-based data.
 Handles fetching, cleaning, integrating, and processing historical and live data.  
 
 **Key features:**
-- Automated ETL: fetch, clean, transform, integrate into database
-- Threaded real-time processing
-- Historical data integration with retry mechanisms
-- Foreign key and entity resolver
-- Logging and error handling
-- CSV output and Discord notifications
+- Automates ETL pipeline: fetches, cleans, transforms, and integrates event-based data into PostgreSQL
+- Supports multithreaded real-time processing
+- Integrates historical data efficiently with retry and error handling mechanisms
+- Resolves entity relationships and foreign keys automatically
+- Detailed logging and monitoring of all processes
+- CSV export and Discord notifications (in development)
 
 ---
 
@@ -24,33 +28,27 @@ Handles fetching, cleaning, integrating, and processing historical and live data
 - Pandas, Requests, JSON
 - Threading, ETL, Logging
 
-## Features / Highlights
-- ETL pipeline with historical & daily data processing
-- Threaded real-time processing of events
-- Automated foreign key resolution and bulk DB integration
-- Logging, retry mechanisms, error handling
-
-
-🔹 Technical Skills Demonstrated
-
-ETL Automation: End-to-end workflow for structured data pipelines.
-APIs & Web Data: Resilient API interactions with retries, logging, and error handling.
-Python Engineering: Modular, multi-file project with utilities and shared functions.
-Databases: Bulk loading, resolving foreign keys, transaction handling.
-Concurrency: Multi-threaded processing of real-time data.
-DevOps Practices: Logging, configuration management, and separation of concerns.
+🔹 Technical Highlights
+- **ETL Automation:** End-to-end workflow for structured data pipelines
+- **APIs & Web Data:** Robust fetching with retries and logging
+- **Python Engineering:** Modular, multi-file architecture with reusable utilities
+- **Databases:** Bulk loading, foreign key resolution, transaction handling
+- **Concurrency:** Multi-threaded real-time event processing
+- **DevOps Practices:** Logging, config management, and separation of concerns
 
 
 🔹 Challenges & Solutions
+- **Unstable API data:** APIs occasionally failed or returned incomplete data  
+✅ Solution: Retry decorator with customizable retries and delays
 
-Challenge: APIs occasionally failed or returned incomplete data.
-✅ Solution: Implemented a retry decorator with customizable retries and delays.
-Challenge: Large volumes of historical data needed efficient integration.
-✅ Solution: Used bulk inserts and smart date-based batch processing.
-Challenge: Different datasets (events, entities, return rates) required synchronization.
-✅ Solution: Created a schema dictionary and resolver functions to keep relationships consistent.
-Challenge: Need for real-time feedback and monitoring.
-✅ Solution: Built a Discord bot integration for live alerts and summaries.
+- **Large historical dataset integration:** Needed efficient batch processing  
+✅ Solution: Bulk inserts and smart date-based processing
+
+- **Synchronizing multiple datasets:** Events, entities, return rates required consistent relationships  
+✅ Solution: Schema dictionary and resolver functions
+
+- **Real-time feedback:** Needed alerts and summaries  
+✅ Solution: Discord bot integration (currently under development)
 
 ## How It Works
 
@@ -71,9 +69,13 @@ Challenge: Need for real-time feedback and monitoring.
    - Output daily CSVs and update return rates
 
 5. **Notifications**
-   - Send important results and summaries via Discord bot
+   - Send important results and summaries via Discord bot (currently under development)
 
 ---
+
+## Future work / In development.
+
+- Machine Learning / Deep Learning (in progress): Developing `analyser.py` to automatically generate probabilistic predictions for events and outcomes. This module will leverage ML/DL algorithms to provide data-driven insights for the pipeline, enhancing automated analysis and decision-making.
 
 ## Module Descriptions
 
@@ -102,9 +104,12 @@ flowchart TD
     G --> H[Daily CSV / Return Rate Output - etl_additional_script.py]
     H --> I[Bot / Discord Notifications - discord_bot.py]
     
-    subgraph utils
+    subgraph Utils
         U[General Utilities - utils.py]
     end
     
     D --> U
     E --> U
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style I fill:#ff9,stroke:#333,stroke-width:2px
