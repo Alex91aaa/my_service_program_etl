@@ -75,7 +75,24 @@ Handles fetching, cleaning, integrating, and processing historical and live data
 
 ## Future work / In development.
 
-- Machine Learning / Deep Learning (in progress): Developing `analyser.py` to automatically generate probabilistic predictions for events and outcomes. This module will leverage ML/DL algorithms to provide data-driven insights for the pipeline, enhancing automated analysis and decision-making.
+Machine Learning / Deep Learning (predictor.py)
+
+- Purpose: Generate probabilistic predictions for events and outcomes to enhance automated analysis.
+- Architecture & Techniques:
+   - DQN Agent: Deep Q-Network for reinforcement learning-based prediction of sequential events.
+   - Multi-head Classification: Predict multiple types of outcomes simultaneously (e.g., event result, transaction trend, entity behavior).
+   - Attention Mechanisms: Improve focus on key features and historical event dependencies.
+   - Reward Shaping: Uses historical outcomes and transaction values to optimize predictive policy.
+- Data Flow: Consumes cleaned and integrated data from ETL pipeline (cleaner.py, loader.py) and outputs probability scores for upcoming events.
+- Integration: Predictions can feed into notifications or analytics dashboards for real-time decision support.
+
+Benefits:
+
+- Demonstrates advanced reinforcement learning and multi-task prediction.
+- Directly integrates with your ETL pipeline for real-world use cases.
+- Highlights your ability to implement complex ML/DL architectures in production workflows.
+  
+---
 
 ## Module Descriptions
 
@@ -103,13 +120,19 @@ flowchart TD
     F --> G[Threaded Real-time Processing - threads.py]
     G --> H[Daily CSV / Return Rate Output - etl_additional_script.py]
     H --> I[Bot / Discord Notifications - discord_bot.py]
-    
-    subgraph Utils
+
+    %% Highlight ML module
+    G --> J{{Probabilistic Predictions (ML/DL) - predictor.py}}
+
+    subgraph utils
         U[General Utilities - utils.py]
     end
     
     D --> U
     E --> U
+
+    %% Styling for emphasis
+    style J fill:#ffcc00,stroke:#333,stroke-width:2px
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style I fill:#ff9,stroke:#333,stroke-width:2px
