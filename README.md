@@ -127,7 +127,9 @@ flowchart TD
     subgraph utils
         U[General Utilities - utils.py]
     end
-    
+
+    D --> J
+    J --> I
     D --> U
     E --> U
 
