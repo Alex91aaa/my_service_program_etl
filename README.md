@@ -122,7 +122,7 @@ flowchart TD
     H --> I[Bot / Discord Notifications - discord_bot.py]
 
     %% Highlight ML module
-    G --> J{{Probabilistic Predictions (ML/DL) - predictor.py}}
+    G --> J{{Probabilistic Predictions - predictor.py ML/DL}}
 
     subgraph utils
         U[General Utilities - utils.py]
@@ -133,6 +133,5 @@ flowchart TD
 
     %% Styling for emphasis
     style J fill:#ffcc00,stroke:#333,stroke-width:2px
-
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style I fill:#ff9,stroke:#333,stroke-width:2px
