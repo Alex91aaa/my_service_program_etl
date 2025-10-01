@@ -4,10 +4,19 @@
 Automated data pipeline for event-based systems.  
 
 ## Overview
-- Collects event, entity, and transaction data.
-- Cleans and integrates data into a PostgreSQL database.
-- Processes historical and real-time data.
-- Supports multithreading and automated logging.
+
+Full ETL and real-time processing pipeline for complex event-based data.  
+Handles fetching, cleaning, integrating, and processing historical and live data.  
+
+**Key features:**
+- Automated ETL: fetch, clean, transform, integrate into database
+- Threaded real-time processing
+- Historical data integration with retry mechanisms
+- Foreign key and entity resolver
+- Logging and error handling
+- CSV output and Discord notifications
+
+---
 
 ## Tech Stack
 - Python 3.x
